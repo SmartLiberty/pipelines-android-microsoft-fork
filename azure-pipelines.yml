@@ -12,14 +12,16 @@ pool:
 steps:
 - task: Gradle@3
   inputs:
-    gradleWrapperFile: 'gradlew'  # Path to your Gradle wrapper
-    tasks: 'build'  # Replace with the tasks you want to run
-    options: '-Xmx3072m'  # Memory option
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'  # Pattern for test result files
-    javaHomeOption: 'JDKVersion'  # This lets you specify which JDK to use
-    jdkVersionOption: '1.11'  # Ensure this is compatible with your Gradle version (e.g., Java 8 or 11)
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'assembleDebug test'
+  displayName: gradlew assembleDebug test
 
 - task: CopyFiles@2
   inputs:

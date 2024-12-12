@@ -14,11 +14,11 @@ steps:
   inputs:
     gradleWrapperFile: 'gradlew'  # Path to your Gradle wrapper
     tasks: 'build'  # Replace with the tasks you want to run
-    options: '-Xmx3072m' 
+    options: '-Xmx3072m'  # Memory option
     publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'  # Updated pattern for test result files
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'  # Replace with your JDK version
+    testResultsFiles: '**/TEST-*.xml'  # Pattern for test result files
+    javaHomeOption: 'JDKVersion'  # This lets you specify which JDK to use
+    jdkVersionOption: '1.11'  # Ensure this is compatible with your Gradle version (e.g., Java 8 or 11)
     jdkArchitectureOption: 'x64'
 
 - task: CopyFiles@2
